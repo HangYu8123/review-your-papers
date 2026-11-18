@@ -1,27 +1,28 @@
 ---
 name: writing-style-portable
-description: Compact guide to Hang Yu's writing style for research papers, theses, reviews, and talks in robot learning and human-robot interaction (about 120 KB, no other files needed). Covers the core philosophy, which guidance wins, a quick reference, rules for claims, sentence style, and editing someone else's text, a vocabulary of terms with fixed meanings and of the terms that field dissertations use, and the conventions of five field dissertations. Use when drafting, revising, or reviewing academic prose in Hang's style, or when wording a proposed edit or a review comment. For a disputed wording or a sentence reviewed before, use the full references in the writing-style skill.
+description: Draft, revise, or proofread scholarly papers and related academic prose across disciplines. Use for outlines, sections, abstracts, evidence-based wording, and editing an author's text. Adapts to the paper's venue, genre, and evidence. Includes Hang Yu's writing preferences and optional robotics and HRI examples.
 ---
 
 # Portable writing style guide
 
-A compact guide to Hang Yu's writing style for research papers, theses, and talks in robot learning and human-robot interaction. It is written to apply to any paper, and it needs no other files. The `advisor-review-paper` and `review-paper` skills word their suggestions with it.
+Use this guide to draft a paper, revise an existing passage, or check the wording of proposed edits and review comments. Establish the audience, genre, constraints, and requested level of editing from the materials provided. Apply Hang's specific preferences when the author or task calls for them.
 
 | File | Use |
 | --- | --- |
-| [writing-style-guide.md](writing-style-guide.md) | Start here. Core philosophy, which guidance wins, a quick reference, and the rules by kind, each with short examples of wording that was replaced or kept |
-| [vocabulary.md](vocabulary.md) | Terms with fixed meanings, the author's technical and research-writing vocabulary by familiarity, the vocabulary of five field dissertations and of twelve recent lab dissertations, words to watch, and acronyms |
-| [field-conventions.md](field-conventions.md) | What five robotics and HRI dissertations do, with measures, where the writers differ, and conventions for structuring a long document |
+| [writing-style-guide.md](writing-style-guide.md) | Start here for drafting, evidence, structure, and editing |
+| [vocabulary.md](vocabulary.md) | Look up Hang's usage or terminology specific to robotics and HRI |
+| [field-conventions.md](field-conventions.md) | Consult as a comparison for robotics and HRI theses or related long documents |
 
 ## How to use it
 
-Before drafting, read the core philosophy and the quick reference. When revising, look up the section for the kind of sentence or passage at hand. Check unfamiliar terms in the vocabulary, and define any term the author has only read. For the structure of a thesis or a long paper, see the field conventions.
+- **Drafting.** Identify the contribution or central claim and the evidence available to support it. Build the requested outline or section around that relationship. Draw factual statements from the supplied material and mark gaps where the author needs to provide evidence or make a decision.
+- **Revision.** Read the sections of the guide relevant to the requested work. For clarity, look for the definition, example, number, or argument link the reader needs. For structural edits, identify what the text must accomplish before moving or cutting it.
+- **Proofreading.** Correct demonstrable errors using the smallest change. Preserve the author's voice, scientific meaning, and presentation choices.
+- **Length or submission check.** Use the venue's current requirements when a deliverable needs them. Verify the proposed text in the format that governs the limit.
 
-When guidance conflicts, the author's current instructions come first, then the facts and definitions of the passage, then the author's past choices, then the style guide, and last the field conventions.
+Use the paper's terminology and the reader's expected knowledge to decide what needs defining. Resolve conflicts using the order in the writing guide. For a disputed wording choice or a previously reviewed sentence in Hang's work, consult the relevant entry in the sibling [full writing-style references](../writing-style/SKILL.md).
 
-When this guide is not enough, such as a disputed wording, a sentence that was reviewed before, or the evidence behind a rule, use the full references in the sibling `writing-style` skill (`../writing-style/`).
-
-To give the guide to an AI assistant without this skill, attach the three files and ask it to follow writing-style-guide.md, with vocabulary.md for word choice and field-conventions.md for structure.
+To share the guide outside the plugin, attach the writing style guide and any companion relevant to the work.
 
 ## Where it comes from
 

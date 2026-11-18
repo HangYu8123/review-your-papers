@@ -1,6 +1,6 @@
 ---
 name: advisor-review-paper
-description: Review a student's academic paper draft, especially HRI, CS, and robotics, using Elaine Schaertl Short's advisor guide. Check the argument, sections, paragraphs, figures, and submission length, and propose small, evidence-based revisions on an editing page where the author accepts, rejects, or edits each one before it reaches the source. Can also write a mock reviewer report on a review page. Use for paper feedback, argument tightening, section review, and submission preparation from PDF, LaTeX, Word, Markdown, or pasted text, including reviews requested by an advisor. Word revisions with the portable writing style guide. Do not apply revisions without the author's acceptance or explicit editing authorization.
+description: Review an academic manuscript for its author, coauthors, or advisor, using Elaine Schaertl Short's advisor guide adapted to the paper's genre and venue. Diagnose the argument and evidence, give focused feedback, or propose small, evidence-based source edits on an editing page where the author accepts, rejects, or edits each one. Use for section review, revision from feedback, proofreading, submission preparation, and mock peer review, from PDF, LaTeX, Word, Markdown, or pasted text. Do not apply revisions without the author's acceptance or explicit editing authorization.
 ---
 
 # Advisor paper review
@@ -29,7 +29,9 @@ The advisor's full guidance is in [references/advisor-guide.md](references/advis
 
 ## Writing tone and wording
 
-The portable guide is the style source for ordinary reviews. Before proposing wording, read [references/writing-style-integration.md](references/writing-style-integration.md) and, in [the portable guide](../writing-style-portable/writing-style-guide.md), the Core philosophy, Which guidance wins, Quick reference, and "7. Editing someone else's text". Look up its other sections for the kind of sentence at hand. Use its [vocabulary](../writing-style-portable/vocabulary.md) for word choice and its [field conventions](../writing-style-portable/field-conventions.md) for the structure of a long document.
+Before proposing wording, read [references/writing-style-integration.md](references/writing-style-integration.md) and the relevant passages of [the portable guide](../writing-style-portable/writing-style-guide.md). Start with which guidance wins and the section on editing. Consult the vocabulary and field conventions when their robotics and HRI examples fit the task. The current manuscript and venue establish terminology and genre conventions.
+
+Use the advisor guide for coaching and structural review. For a narrow task, consult the relevant sections. Apply its section and length targets when they fit the genre and venue. Use Hang's past choices as style evidence for work that calls for those preferences.
 
 The full references are large. Open them only when the portable guide is not enough:
 
@@ -59,7 +61,7 @@ Your default move is a **proposed revision**, not a question. You point to a spe
 - **Do not hand down verdicts without evidence**, like "this paragraph is too long, split it." Give the numbers and the point with the revision: "This paragraph is about 280 words, the longest in the section. Its first four sentences make one point and the last three describe the study setup, so the revision splits it after the fourth sentence."
 - **Name the principle and show where it applies.** Say what the advisor's guide expects of an introduction, or that a sentence is 52 words long, next to the revision that addresses it. Information about the text and the standard is what lets the student judge the revision.
 - **Keep the meaning, don't grade.** A revision keeps the student's claims, data, citations, and terms. When the point of a passage is unclear, state the point you read ("The point of this paragraph seems to be that existing planners assume a static human") and propose the revision for that point, so the student can reject it if the reading is wrong.
-- **When the student rejects a revision**, don't propose the same change again. (1) work narrowly, (2) point to a specific phrase or sentence, (3) explain the principle with a short invented example that is not about their paper (e.g., about cats or toasters), (4) offer two or three kinds of fix ("some people split here, some cut the second half, some move it to Background") and let them choose and write it.
+- **When the author rejects a revision**, record the decision and any reason. If the concern persists, point to the smallest relevant passage and ask a focused question. In a coaching session, a short unrelated example and a few possible approaches can help the student choose and write a fix. When the author requests rework or supplies evidence that materially changes the issue, explain what changed and propose the smallest revision that addresses it.
 - **If the student wants to write a fix themselves**, let them edit the proposed wording before accepting it, or reject it and write their own. Their wording takes the place of the proposal, and it is checked like any other edit (see "Student decisions" below). Their intended editing should have higher weights.
 - **Say what works, specifically and honestly** ("The hook sentence names a concrete failure case, which does exactly what the guide asks of paragraph 1"). Don't invent problems. If a paragraph is fine, say so in one line and propose nothing.
 - **Keep each proposal small.** One proposal changes one paragraph, one sentence, or one figure, so that the student can accept or reject each one on its own. Long multi-point critiques defeat the purpose.
@@ -88,21 +90,22 @@ Read `<edit-template>/README.md` before writing the first items. It specifies `i
    ```
    Fix every item it reports as missing or not unique, and build again.
 4. **Open `review.html`** in that folder for the student (for example `Start-Process` in PowerShell, `open` on macOS, or `xdg-open` on Linux). The student accepts, rejects, edits the wording, or leaves a note, and clicks **Save batch**, which writes `<name>.decisions.<time>.json` to the folder (or to Downloads in browsers that cannot write to a folder).
-5. **Read the decisions** from the batch files in time order, later batches winning. `revised_override` holds the student's own wording. Check that wording against the principle that prompted the proposal (see "Student decisions").
-6. **Apply** with a dry run first, show the student what it would change, and run it with `--write` when the student confirms. It changes only accepted items, backs up each file, and records the changes in `change-record.md`.
+5. **Read saved decisions** in time order and use the latest explicit status and any author wording for the current version of each item. Check whether an acceptance requires a data check, a related edit, or another condition. Keep unresolved conditions pending. Preserve unchanged item IDs and review history when rebuilding.
+6. **Validate before applying.** Dry-run the accepted set and check anchors and dependent or overlapping edits together. Apply only with the author's editing authorization. Keep the tool's backups and change record, then verify the changed passages and any affected references, cross-references, counts, or render. For Word or another format the helper cannot safely edit, use a suitable document workflow or give the author confirmed passages with their locations.
+
    ```bash
    python <edit-template>/apply_decisions.py <paper root>/waiting_for_review/<name> --root <paper root>
    python <edit-template>/apply_decisions.py <paper root>/waiting_for_review/<name> --root <paper root> --write
    ```
 
-Add each section's proposals to the same `items.txt` as you reach it and rebuild. Rebuilding keeps every saved decision whose item text did not change. Figure findings that are not caption edits stay in chat with their evidence. To have a second agent look over the proposals, point it at `<edit-template>/second-agent-brief.md` and the review folder; its style sources are in `../writing-style/`. Its options appear as a second choice on a card, so use them occasionally and only when needed; most cards should have one option.
+Add proposals to the same review as you work through sections. Rebuild and verify that unchanged proposals retain their saved decisions. Describe any dependencies on the affected cards. Include a second option only when it changes a material editorial or evidentiary choice. When a second opinion is requested, give the reviewer the current source, scope, and style references. Use the option format in the editing template's `second-agent-brief.md` and preserve which version was reviewed.
 
 ### The review page (mock reviewer report)
 
 When the student or advisor asks how reviewers would read the draft, asks for an overall assessment, or accepts your offer at wrap-up, write a mock review on the review page. It reports on the draft; it does not change it.
 
 1. Read the header comment of `<review-template>/review.html` (its first 116 lines), which specifies `review-data.js`, and the worked example in [review-data-format.md](review-tools/review-data-format.md).
-2. Copy `<review-template>/review.html` unchanged into `<paper root>/review/`, and write `<paper root>/review/review-data.js` with the five sections in order: summary, strengths, weaknesses, areas for improvement, and overall recommendation. Give every point one to five evidence objects with the location, what the paper says, and the reason. Build the `machine` from the argument chain the student confirmed in step 2 of the session flow, and mark weak links between the experiments and the contributions they support.
+2. Copy `<review-template>/review.html` unchanged into `<paper root>/review/`, and write `<paper root>/review/review-data.js` with the five sections in order: summary, strengths, weaknesses, areas for improvement, and overall recommendation. Give every point one to five evidence objects with the location, what the paper says, and the reason. Use the argument identified in step 2 to connect contributions with their evidence. Add the optional `machine` when the template's labels fit the evidence. Show the links under the review points when the paper uses another form of support.
 3. Write as a fair reviewer at the target venue: "the authors" as the subject, weaknesses that state one concern each with its location and what would resolve it, and a recommendation that uses the venue's decision options and names what would most change it. Leave out the expertise caveat that ends Hang's own peer reviews. Because the paper is the student's own, a point may explain an observation, give its likely cause, and suggest a fix, which helps the student act on it. Mark such an explanation as your reading, not a finding. (A peer review of someone else's paper asks the authors instead; see "Ask the authors, do not explain for them" in the `review-paper` skill.)
 4. Check it, and fix every error. Warnings about Hang's peer-review conventions, such as the expertise caveat and explaining an observation, do not apply to a mock review.
    ```bash
@@ -110,40 +113,39 @@ When the student or advisor asks how reviewers would read the draft, asks for an
    ```
 5. Open the page for the student. A weakness the student wants to fix becomes proposals on the editing page.
 
+## Revising from comments or preparing a response
+
+Record each actionable comment with a stable ID and location. Retain the exact wording when supplied and label a summary or uncertain transcription. Read the entire comment when it includes a follow-up or qualification. Keep what the reviewer asked, what the author said, and what the manuscript or evidence establishes attributable to their sources.
+
+Check whether the current text already addresses the comment, needs a small edit, or requires an author answer, a source check, or new work. Use those outcomes to account for every in-scope comment. Show the exact passage and give each proposal a short reason that answers the comment. Include alternatives only when they change a meaningful choice. When a new request reopens an earlier decision, state what makes the new proposal different.
+
+If a response letter is requested, pair the comment with a direct answer and the verified location of any completed change. Describe pending work, unresolved checks, and reasoned decisions to retain existing text accurately. Summarize what can be verified from the final draft.
+
 ## Session flow
 
-### 1. Set up (one or two short turns)
+### 1. Set up
 
-1. Get the paper — ideally **both** the compiled PDF and the source (the .tex files or an Overleaf zip, or the .docx). The PDF shows layout, length and figures; the source gives the exact text to quote and revise, without PDF extraction artifacts, and makes it easy to carry the accepted revisions back. If they've only shared one, ask once for the other; if they don't have it, proceed with what you have. If it's a file, extract the text (see "Tools for reading the paper and figures" below), run the structure scan, and, if the paper has figures, run the figure inventory.
-2. Read `references/advisor-guide.md` and the starting readings under "Writing tone and wording" above. Check any earlier decisions for the passages under review, including batch files in the paper's existing review folders.
-3. **Establish the target length before anything else.** Every section target in the guide is a share of the overall length, so you can't judge whether the Background is "too long" until you know the limit. Find out:
-   - the venue and paper type (full paper, short paper, late-breaking report, workshop paper, journal article, thesis chapter),
-   - the page or word limit, and whether references (and appendices) count toward it,
-   - the format (single- or two-column template).
-   Infer what you can from the document first (a PDF's page count and layout, the LaTeX document class, a venue name on the title page), then ask only for what's missing. If the student doesn't know the limit, don't guess and move on — ask them to check the call for papers (you can help find it with web search if they name the venue). Only if it truly can't be determined, agree on an assumption with the student (e.g., "let's assume 8 pages, two-column, references excluded") and say it's an assumption.
-   Then scale the guide's section targets to that length (the guide's numbers assume 8–9 pages; for a 4-page paper roughly halve them and expect merged Intro/Background and Discussion/Conclusion) and note where the draft currently stands against the limit (over, under, about right). If the paper is well over the limit, mention that the guide has an editing-for-length process and ask whether they want to address length now or after the content review — content first is usually better, since cuts are easier once each paragraph's point is clear.
-4. In the same message or the next, ask how far along the draft is and whether they want to cover the whole paper or focus on particular sections (default: whole paper).
-5. Choose where the student decides (see "Bring the text to the student"). With source files, create the review folder for the editing page.
-6. Give a two-to-three sentence overview of how the session will go so they know what to expect (argument first, then section by section, you propose the revisions and they accept or reject each one).
+Start from the supplied draft, scope, and stage. Use editable source for exact passages and the rendered manuscript for layout, figures, and copy fit. Proceed with the material available and ask for an additional source when it affects the requested judgment. Check the paper's existing decision record for relevant passages.
 
-### 2. The central argument (do this before any section-level review)
+- For a passage, proofreading, length check, or supplied-comment request, go directly to the material and read enough surrounding text to verify the proposal. Use the available scans only where they save work or catch coverage gaps.
+- For a full review, establish the draft stage from the materials. If it affects the review and remains unclear, ask. Read the available manuscript and establish its claim and evidence before section-level edits. Prioritize the sections on which the contribution depends. For long work, keep a compact findings list and stage coherent batches, ordered by importance or by section.
+- When length or submission format matters, verify the venue, paper type, and applicable limit, including what counts, before making judgments about section lengths or copy fit. Use the advisor guide's HRI conference-paper lengths as an optional comparison when they fit. Ask about a missing venue or constraint only when it affects the requested work.
 
-Students most often need help building a coherent chain of logic. Start here because every later proposal depends on it.
+Choose a review surface that the author can use. Keep exact quotations, proposal reasons, and decisions together. Use the relevant checks in the following sections.
 
-1. **Before reviewing any section**, read the whole paper and state its central argument as a short chain: *problem → why it matters → why it's hard / what's missing → what we did → what we found → why that matters.* One sentence per link is plenty, each with the place in the paper that states it. Show the chain to the student, ask whether it is the argument they meant to make, and record their corrections.
-2. Then check that chain against the four questions every introduction must answer:
-   - What is being done?
-   - What is the current state of the art in the field?
-   - Why is our thing new?
-   - Why is our thing important?
-3. Look for weak links: Does each step actually follow from the previous one? Is there a jump (e.g., "the problem matters" → "so we built X" without saying why existing work fails)? Does the claimed result actually support the claimed contribution, without over- or under-stating it? For each weak link you find, propose a revision at the place in the paper where the link is made.
-4. Save the chain the student confirmed and refer back to it throughout. When reviewing a section, state which link of the argument the section carries and whether the section matches the confirmed chain. Mismatches between the chain the student confirmed and the paper they wrote are some of the most valuable things to surface.
+### 2. The central argument
+
+For an argument or full-paper review, read the available manuscript before section-level edits. Trace a short chain from the question and why it matters, through what is established or missing, to the paper's contribution, support, and implication. Record where each link appears. In a scoped review, check the links the request touches.
+
+Check whether the introduction tells its audience what the paper does, where it sits in relation to prior work, what it contributes, and why that matters. Adapt the order and emphasis to the genre. Judge each inference by evidence appropriate to the claim, such as a study comparison, proof, primary sources, or a literature synthesis. For a weak link, give its location and propose a small revision or name the premise the author needs to confirm.
+
+In a coaching session, show the student the chain, ask whether it matches the intended argument, and record any corrections. In other reviews, ask the author about ambiguities that would change the assessment. Use the working argument when reviewing the sections that carry it.
 
 ### 3. Section-by-section review
 
 Go through sections in the paper's order (or the order the student asked for). For each section:
 
-1. **Orient.** Briefly say what the advisor's guide says this section is for and its rough target length (from `references/advisor-guide.md`, scaled to the paper's target length from setup), and report the section's actual length from the scan. State which link of the argument this section carries.
+1. **Orient.** State the section's function in the paper's argument. Compare its length or structure with the venue requirements or an applicable guide when that comparison helps answer the request.
 2. **Signposting.** Every section should tell the reader early on what it covers and how it's organized. Check whether the section's opening paragraph tells the reader what's coming. If it doesn't, note what a reader would expect the section to contain after reading the first paragraph, and propose a revision of that paragraph that matches what follows.
 3. **Paragraph points.** For each key paragraph, state its point in one sentence (usually a claim, sometimes a topic or key idea). Then check:
    - Where in the paragraph is that point stated? (Ideally early — often the first sentence.)
@@ -226,6 +228,5 @@ The scan is a heuristic aid for *you* to decide where to direct attention. Its c
 
 ## Adapting
 
-- The guide is written for HRI conference papers. For other fields or formats (journals, workshop papers, theses), keep the core principles (argument chain, the four intro questions, paragraph points, signposting, length) and adjust section expectations; ask the student what structure their venue expects. For workshop papers and abstracts, Introduction+Background and Discussion+Conclusion are often merged.
-- If the paper is very early (outline or partial draft), spend most of the time on the argument chain and the intended point of each planned paragraph.
-- If the student is short on time before a deadline, ask what matters most to them and prioritize the Introduction (the guide says it's the section to edit most carefully if you only have time for one), then the contribution claims.
+- Ask what function the section serves in this paper. Use the advisor guide's section, figure, and length heuristics when they fit the genre and venue. For a proof, inspect definitions and the steps carrying the result. For a qualitative paper, check how the sources and method support the interpretation. For an empirical paper, check whether the design and analysis support the stated finding.
+- In an outline or partial draft, identify the planned argument and the evidence still needed. Before a deadline, prioritize the requested deliverable and issues that affect its correctness or submission. Treat optional style improvements as a separate decision.

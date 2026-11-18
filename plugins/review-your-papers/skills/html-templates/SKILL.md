@@ -1,6 +1,6 @@
 ---
 name: html-templates
-description: Two HTML page templates for accept-or-reject review workflows. The editing template turns a list of proposed edits to LaTeX source files into a page where the author accepts, rejects, or rewords each one, then applies the accepted edits with a dry run first (Python 3.8+). The review template shows a peer-review report (summary, strengths, weaknesses, areas for improvement, recommendation, and an argument map) with evidence under each point and accept, edit, and reject buttons. Use when proposing edits to a document for the author to approve, or when building a review page from a review-data.js.
+description: Build interactive HTML review pages for scholarly work. Use the editing template to stage source passages for approval and the review template to present peer-review points with evidence. The editing helper matches UTF-8 text such as LaTeX, Markdown, or plain text. Use a format-specific workflow to edit Word or other non-text sources.
 ---
 
 # HTML templates
@@ -16,18 +16,15 @@ The `advisor-review-paper` and `review-paper` skills use these two templates. Th
 
 Read [edit_template/README.md](edit_template/README.md) first. It specifies `items.txt`, the page, the decision batches, and the apply step, and `edit_template/example/` is a small review to try it on.
 
-The template was written for Hang's dissertation, so its README describes `waiting_for_review/` in the dissertation folder. For any other document:
+Put the review folder with the paper and pass its source root explicitly. Use UTF-8 text with a unique before passage or insertion anchor. For non-LaTeX sources, inspect the exact-source view to verify markup. Set `markers: no` for clean source and for files that do not support the annotation macro. Use markers only when the source supports them and the author wants them.
 
-1. Put the review folder inside the document's root folder, such as `<root>/waiting_for_review/<name>/`.
-2. Add `markers: no` under `@review` in `items.txt` unless the document defines the `\hang` macro.
-3. Pass `--root <root>` to both scripts:
-   ```
-   python <this skill>/edit_template/build_review.py <root>/waiting_for_review/<name> --root <root>
-   python <this skill>/edit_template/apply_decisions.py <root>/waiting_for_review/<name> --root <root>           # dry run
-   python <this skill>/edit_template/apply_decisions.py <root>/waiting_for_review/<name> --root <root> --write   # edits the source
-   ```
+```bash
+python <this skill>/edit_template/build_review.py <root>/waiting_for_review/<name> --root <root>
+python <this skill>/edit_template/apply_decisions.py <root>/waiting_for_review/<name> --root <root>
+python <this skill>/edit_template/apply_decisions.py <root>/waiting_for_review/<name> --root <root> --write
+```
 
-Apply only accepted items, and only after the author confirms the dry run. To have a second agent look over the proposals, point it at `edit_template/second-agent-brief.md` and the review folder; the style sources it names are in the `writing-style` skill. Its disagreements show as two options on a card (Accept A, Accept B, Reject both). Use them occasionally, and only when needed: each one asks the author to choose instead of giving a recommendation, so most cards should have one option.
+Treat the build and second command as validation. Check overlaps, dependencies, and any conditions attached to an acceptance. Use the third command only for authorized, accepted edits and verify the resulting document. Use check mode for approval of a transcription or other source reading. Its decisions record readings and carry no source edits. Offer a second wording option only when the choice matters to the author. For a requested second look, use the option format in [second-agent-brief.md](edit_template/second-agent-brief.md) with the current paper's source format, root, style references, and validation steps.
 
 ## Review template
 

@@ -17,7 +17,7 @@ This skill runs in Claude Code and in Codex, as part of the `review-your-papers`
 
 | What | Where |
 | --- | --- |
-| Manuscript | The paper PDF in the paper folder. If the folder has several PDFs and it is unclear which is the manuscript, ask. |
+| Manuscript | The supplied PDF, editable manuscript, or passage relevant to the request. Use the available supplement and venue form where relevant. |
 | Reference review, optional | Usually `<paper>/review.pdf`, or a file the user names. Treat it as a second opinion to verify against the manuscript. |
 | Review rules | [references/guideline.md](references/guideline.md), Hang's guideline for the sections, their order, and the rules for each one |
 | Past reviews, optional | `previous_reviews/previous_reviews` in the folder that holds the paper folder, or a file Hang names. They are confidential, so they are not part of this skill. |
@@ -31,7 +31,7 @@ Below, `<review-template>` and `<edit-template>` stand for these two template fo
 
 When Hang asks to revise an existing review, update that review in place, preserving saved decisions and Hang's wording. Before replacing an existing review with a fresh draft, ask whether to replace it or write to `<paper>/review-<YYYYMMDD>/` instead.
 
-Treat the manuscript as confidential, since review copies are marked "For review only". Search the web for related work by topic and title, but never paste manuscript text into a web form, a search engine, or an external tool.
+Treat an unpublished submission, its title, text, data and supplements, and the review itself as confidential. Follow any stricter venue rule, including rules about AI assistance. Keep confidential material out of search engines, web forms, and external tools. When the venue permits a related-work search, use general topic terms and public bibliographic details of published work.
 
 ## Ask the authors, do not explain for them
 
@@ -50,34 +50,23 @@ When the paper is Hang's own or a co-author's, an explanation of an observation 
 
 ## Workflow
 
-### 1. Read the whole paper
+### 1. Read the material needed for the review
 
-Extract the text with page markers into the scratchpad, then read all of it, including the appendix and any supplement.
+For a full review, read the available manuscript, appendices, and supplementary material that documents its claims. For extensive supplementary datasets or code, inspect what the material claims depend on. For a scoped review, trace the relevant claim and support, and limit conclusions to what was checked. Search the manuscript and its supplements before reporting an omission.
 
-```
-python SKILL_DIR/scripts/pdf_pages.py <paper>/<manuscript>.pdf <scratchpad>/paper.txt
-```
+Use readable source directly. For PDFs, use page-marked extraction such as `python SKILL_DIR/scripts/pdf_pages.py <paper.pdf> <scratchpad>/paper.txt`. Inspect rendered tables, figures, and equations for details the extraction may lose. Verify every reported number at its source or document the calculation from verified inputs.
 
-Text extraction scrambles tables and loses figures. Open every page that has a results table or a key figure as an image (for instance with the Read tool and `pages: "5-6"`) and read the numbers from the page image. Any number that goes into the review should come from a table or figure you looked at.
-
-While reading, keep notes in `<scratchpad>/notes.md`:
-
-- **Claims**, quoted with location, from the abstract, the contribution list, and the conclusion.
-- **Method**, separating what is new from what is taken from earlier work.
-- **Experiments**, each with environment, workload (scenes, trials, runs, seeds), baselines, metrics, headline numbers, and location.
-- **Limitations the authors state themselves.**
-- **Open questions**, each an observation the paper does not explain, with its location and the claim that depends on it. In an external review these become questions for the authors, not explanations (see "Ask the authors, do not explain for them").
-- **Venue and submission id**, usually in the page header, and the review form options if known.
+Keep concise notes on the claims and their locations, what is new, what supports each claim, stated limitations, and unresolved questions that matter to the recommendation. For empirical work, include design, samples, comparisons, measures, and uncertainty as applicable. For other work, record the premises, sources, or synthesis method. Note the venue, submission identifier if given, and any limits on the material reviewed.
 
 ### 2. Check the claims against the evidence
 
-This step produces the weaknesses, so spend real time on it. For each claimed contribution, ask what supports it, whether that support isolates it (an ablation, a controlled baseline), whether it is tested in the setting the claim names (real robot or simulation, the objects or users it claims), how large the test is, and whether uncertainty is reported. Recompute derived numbers such as speedups, ratios, and percentages from counts. When the method's validity rests on a derivation or an equation, work through it instead of flagging it as unclear. When a result is unexpected and the paper does not say why, record it as an open question. In an external review it stays a question for the authors, even when you have a likely explanation.
+For each material claim, identify its support and test the inference under the paper's own methods and scope. In an empirical paper, check design, sampling, comparators, outcome definitions, uncertainty, and whether the relevant setting was tested. In theoretical work, trace the result through its premises and proof. In qualitative, interpretive, or synthesis work, check the evidence, selection method where applicable, and how the conclusions follow. Follow the paper's actual form when it combines these approaches.
 
-Read [references/calibration.md](references/calibration.md) before drafting any weakness. It lists the ways earlier drafts went wrong, such as claiming the paper omits something it states, or treating a rough calculation as proof of a discrepancy.
+Recompute a consequential derived result when the inputs and calculation are available. Check whether differences in data versions, inclusion rules, denominators, scoring, or assumptions could explain a mismatch. State any unresolved check as an observation and a question about the affected claim. Search the relevant manuscript and supplement for alternate terminology before asserting an omission. Read [references/calibration.md](references/calibration.md) before drafting a weakness.
 
 ### 3. Look at the closest related work
 
-To judge novelty and whether a method is outdated, find the two to four closest prior works with the available web tools (arXiv, project pages), and read at least their abstracts and method overviews. Describe the specific difference supported by those sources. A limited search does not support "first" or a field-wide claim. Put the search scope and any uncertainty in the evidence; do not replace them with "new to me" or "as far as I know" in the review. If there is no web access, record that limit in the evidence and avoid an unsupported novelty claim.
+For a full review, check the closest relevant prior work when the contribution depends on a novelty claim. In a scoped review, do so when the question calls for it. Follow the venue's confidentiality rules and use public search terms. Read the relevant passages of the primary sources and identify the specific difference and version. Record the search scope and any unavailable sources in the evidence. Describe a bounded comparison or ask a focused question when the comparison remains open.
 
 ### 4. Check the reference review, if there is one
 
@@ -94,7 +83,9 @@ The portable guide and the review voice cover ordinary reviews. The full referen
 
 ### 6. Draft the five sections
 
-Write the items in this order, with these ids: `summary-1`, `summary-2`, `strength-1` ..., `weakness-1` ..., `improvement-1` ..., `recommendation-1`.
+Follow the venue form and the review scope the user requested. Use the page and its file-building steps for a full interactive review or when the user requests that surface. The page groups points as summary, strengths, weaknesses, areas for improvement, and recommendation, with IDs such as `summary-1` and `weakness-1`. Use the suggested counts and lengths as pacing defaults. For a focused review, deliver the requested feedback with the same evidence standard.
+
+Follow the current user's reviewing voice and the venue requirements. Treat Hang's past reviews, wording examples, and section lengths as defaults when that style is requested or fits the task. Use the venue's recommendation and confidence fields. Include a statement about the reviewer's expertise only when it is accurate and the user or venue calls for it. Run the file-building steps below for an interactive review.
 
 **Summary** (one or two short paragraphs, usually 80 to 140 words total). Summarize the contributions fairly instead of repeating the claimed list. The first paragraph names the problem, approach, and central contribution in about three sentences. Merge claims that are one idea at two levels of detail, and omit implementation details. Hang's summaries open with "In this work, the authors proposed ...". A second paragraph, if needed, gives the evaluation setting and main result in **one or two sentences**, usually no more than 45 words. Omit metric lists, secondary timings, and a repeated novelty judgment. If a quantitative comparison is essential, give one comparison with its measure, baseline, and condition.
 
@@ -125,14 +116,7 @@ The first evidence of a point is usually the paper location that supports it. Ci
 
 ### 8. Draft the state machine of the paper
 
-After the five sections, map the argument of the paper, not its pipeline. The specification is in the header comment of `<review-template>/review.html` (the `machine` fields and "How to write the machine"), and [review-data-format.md](review-tools/review-data-format.md) has a worked example. In short:
-
-1. One intuition state, then two to four contribution states, judged as fairly as in the summary.
-2. For each contribution, the work states that carry it (modules, derivations, systems, datasets), with `where` and `novel` only on what is new.
-3. One experiment state per experiment that matters, with the environment and total workload in `sub`, and transitions from the work it tests, labeled with the result. Set `weak` when the experiment does not isolate that work, is simulation-only for a real-world claim, or is too small.
-4. Context states only when they explain the paper or expose an important weakness.
-
-Use about 8 to 16 states, listed by role in that order, and link each state to the review points about it in `points`.
+Map the central claim, the work that carries it, and the evidence that supports it. Give each link a location and mark where the support is partial. In the full interactive review, use the optional `machine` schema in the [format example](review-tools/review-data-format.md) when its experiment-oriented labels fit the paper. Otherwise show these links in the evidence under each review point and omit the machine. If the checker flags the omitted map, verify that the per-point evidence supplies the links.
 
 ### 9. Verify before writing the files
 
@@ -165,11 +149,10 @@ Then wait for Hang's decisions. Do not write a final review elsewhere or submit 
 
 ## Revising after Hang's decisions
 
-The page's "Save decisions" button writes `<review_id>.decisions.<timestamp>.json` into the page's own folder, `<paper>/review/`, in browsers that can write to a folder (Chrome and Edge). The first save asks Hang to choose that folder once. In other browsers, or when Hang picks "Download instead", the file goes to Downloads. When Hang says the decisions are saved, look in the review folder first, then in Downloads, and take the newest file for this `review_id`. When Hang brings one back, or says which points to change:
+The page's "Save decisions" button writes `<review_id>.decisions.<timestamp>.json` into the page's own folder, `<paper>/review/`, in browsers that can write to a folder (Chrome and Edge). The first save asks Hang to choose that folder once. In other browsers, or when Hang picks "Download instead", the file goes to Downloads. When decisions are saved, read every batch for this `review_id` in time order from the review folder and any matching files in Downloads. Use the latest explicit decision for the current version of each point.
 
-- An accepted point stays as it is. A point with `revised_override` takes Hang's text as its new `revised`, since that is Hang's own wording, whether or not Hang accepted it yet. A `comment` is Hang's note on that point, on any status: follow it. On a rejected point it says why, so rewrite the point as it asks, or drop it. A reference with `verdict: "disagree"` and a note means the evidence or the point is wrong, so fix it.
-- The top-level `notes` are Hang's notes on the whole review, such as a point to add or a change across sections. Act on each one, and say in the summary how, or why not.
-- Read all relevant saved batches in time order, with later decisions taking precedence. Hang's edited wording carries more weight than an acceptance without edits. Do not infer pending decisions unless Hang asks; when asked, record inferred decisions separately from explicit choices and explain the basis. Preserve claims, data, citations, and terms, make each change as narrow as possible, and do not propose a rejected change again without addressing the rejection.
+- Keep an accepted point as saved. Use `revised_override` as the user's wording and retain the point's saved status. Keep pending and rejected points out of the approved review. Resolve an attached condition before using the point in a final review. Use `comment` and top-level `notes` as instructions for the applicable points, keeping factual or venue conflicts visible. When a `verdict: "disagree"` challenges evidence, recheck it and fix or drop the point.
+- Give edited wording more weight than acceptance without edits. Infer pending decisions only when the user delegates them, and record the resulting decisions and reasons as delegated. Preserve verified claims, data, citations, and terms. Reopen a rejected point when the user requests a rework or supplies material new evidence, and explain what changed.
 - Keep the ids of unchanged items. The page drops a saved decision only when the text or evidence under it changes, so unchanged points keep their decisions.
 - Update `generated`, rerun the checker, and summarize what changed.
 - Hang's edits and rejections are the strongest evidence of the reviewing style. If Hang wants them kept, offer to move a decisions file that went to Downloads into the review folder and run `python SKILL_DIR/../writing-style/writing_style_ref/tools/import_review.py <paper>/review`, and ask before running it, since it changes the shared style reference. An installed copy is replaced on the next install or plugin update, so run it on the repository's copy (`plugins/review-your-papers/skills/writing-style/`) and update the installation.

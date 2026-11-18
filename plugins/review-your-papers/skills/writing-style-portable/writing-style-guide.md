@@ -1,29 +1,30 @@
 # Writing style guide
 
-This guide describes Hang Yu's writing style for research papers, theses, and talks. It condenses a longer reference built from six published papers in robot learning and human-robot interaction, and from the author's own instructions, hand edits, and decisions on several hundred suggested edits. The rules are written to hold for any paper. The examples come from the author's work and illustrate a rule. They are not text to reuse.
+Use this guide for scholarly drafting and revision across fields. Its examples come from Hang Yu's papers and dissertation reviews. Use those examples to understand the decisions they illustrate and take facts and terminology from the current paper.
 
-Companion files are [field-conventions.md](field-conventions.md), which shows what experienced robotics and HRI writers do, and [vocabulary.md](vocabulary.md), which lists the terms the author uses.
+Companion files [field-conventions.md](field-conventions.md) and [vocabulary.md](vocabulary.md) describe robotics and HRI writing and Hang's usage.
 
 ## Core philosophy
 
-1. **Say what was done, what was found, and what it means.** The voice is direct, concrete, and explanatory.
-2. **Match claim strength to the evidence.** State an observation firmly within its scope, qualify an interpretation, and present an untested explanation as a possibility.
-3. **Explain through operations.** A method is described by its input, operation, and output before any benefit is named.
-4. **Keep terms stable.** A defined term keeps one meaning. Synonyms are not used for variety.
-5. **Use literal wording.** Name the relation between ideas with plain verbs and connectors, not figures of speech.
-6. **Describe people precisely and without blame.** Imperfect human input can contain systematic structure and useful information.
-7. **Use few words and few marks.** Few colons and semicolons, no em dashes, and few value words.
-8. **Respect the author's wording when editing.** Move, cut, and correct before writing anything new.
+1. **Say what was done, what was found, and what it means.** Use direct, concrete language.
+2. **Match claim strength to evidence.** State an observation within its scope, qualify an interpretation, and label an untested explanation.
+3. **Explain how the work proceeds.** Give the inputs and operations of a method or the steps and premises of an argument before naming what it establishes.
+4. **Keep terms stable.** Use defined terms consistently.
+5. **Name the relation between ideas.** Use plain verbs and connectors that express it.
+6. **Describe people precisely and without blame.** Use the terms grounded in the study, evidence, and current field.
+7. **Use few words and few marks.** Cut words that add no information, and use few value words. In Hang's own writing, use few colons and semicolons and no em dashes. In another writer's text, keep the punctuation the writer chose unless it causes a misreading, and keep the marks in quotations, equations, and identifiers.
+8. **Respect the author's wording.** Move, cut, and correct before writing new prose where the task is revision.
 
 ## Which guidance wins
 
-When two sources of guidance conflict, follow the first one in this list.
+Use the facts, data, and definitions of the paper as constraints. When preparing a deliverable for a specific venue, check its requirements and flag any conflict that affects the result. Within those bounds, use this order for editorial decisions:
 
-1. The author's current instructions.
-2. The facts, data, and definitions of the passage being written.
-3. The author's own past choices. An explicit instruction counts most, then a hand edit or a suggestion the author rewrote, then a suggestion the author declined, then one the author accepted as written. A decline says more about preference than an acceptance.
-4. This guide.
-5. Field conventions and wording from published papers.
+1. The author's current instructions and the requested scope.
+2. The author's relevant past choices. Give an explicit instruction or the author's own wording more weight than a routine acceptance. A decline in a comparable passage can be stronger style evidence than an acceptance. Consider the reason and context.
+3. This guide and any personal preferences the current author wants to use.
+4. Field conventions and examples from published papers.
+
+Use the audience's knowledge to decide what needs a gloss.
 
 In the forms below, square brackets mark slots to fill. In the examples, ✗ marks wording that was replaced or declined and ✓ marks the wording that the author chose or kept.
 
@@ -37,19 +38,19 @@ In the forms below, square brackets mark slots to fill. In the examples, ✗ mar
 6. Qualify a sentence only where it misstates the evidence. Do not narrow a positive result that the paper tests, and do not add sentences that only say the evidence is weak.
 7. Give each sentence one main job. Keep together a governing condition and its claim, a result and the which clause that interprets it, and a list and the sentence that introduces it.
 8. Define a term in ordinary language before notation. Give the intuition before the operations and the evaluation.
-9. Open a paper or chapter with its place in the larger work, then the gap, the aim, the study, the findings, and what they are useful for.
-10. Use few colons and semicolons. Say the relation with which, since, because, such as, or whereas, or start a new sentence. Replace em dashes.
+9. Open with the question or problem and enough context to understand the contribution. Add a bridge to the larger work where the section needs one.
+10. In Hang's own writing, use few colons and semicolons. Say the relation with which, since, because, such as, or whereas, or start a new sentence, and replace em dashes. In another writer's text, keep the writer's punctuation unless it causes a misreading.
 11. Write complete clauses. A comparison gets its own subject and verb.
 12. Use literal verbs such as suggest, are consistent with, help explain, and provide.
 13. Correct an error in the author's sentence without rewording it. Offer any rewording as a separate suggestion.
-14. Move, cut, and correct before writing new sentences. Add a sentence only when asked or when a fact the results depend on is missing.
-15. In text drafted from the author's notes, write what the notes say. Do not add a closing sentence that links the point back to the larger work.
-16. Choose terms the author already uses, listed in [vocabulary.md](vocabulary.md). Define a term the author has only read.
-17. State the thesis of a long work in one sentence. In the author's own work, repeat it in the same words in the abstract, the introduction, and the conclusion. Field dissertations rarely do this, so its absence is not a fault in another writer's paper or thesis.
+14. Move, cut, and correct before writing new sentences. Add a sentence only when the author asks for the content or when a fact the claims depend on is missing, and take it from the paper or a verified source.
+15. When drafting from the author's notes, preserve their point, register, and degree of certainty. Add a closing link only when the section needs it to make the argument clear or the author asks for it.
+16. Use the paper's terms consistently. Define terms the intended reader needs to understand the claim.
+17. State the central claim of a long work in one sentence while planning. Check that its abstract, introduction, and conclusion describe the same contribution and scope in ways suited to their jobs. Repeat the sentence verbatim when it is an explicit choice for the work, as in Hang's dissertation.
 18. On slides, use few words in a spoken, scientific but casual tone. Report results as measured, keep premises plain, and keep the lines the author wrote.
-19. Tell the motivation of a talk or video as a story about the problem, not as a summary of results, and do not overstate what systems can do now.
-20. Write for a reader from a neighboring field. Gloss terms at first use, name the members of any counted set, give one case after a general claim, and give the measure and size of each comparative claim in an abstract, introduction, or summary.
-21. Before changing a sentence, check any record of the author's earlier decisions on it. Raise a declined change again only as a question.
+19. Tell the motivation of a talk or video as a story about the problem. Keep claims about what systems can do within the evidence.
+20. Write for the intended reader. Gloss consequential terms, identify a counted set, give a concrete example when needed, and make material comparisons interpretable.
+21. Before revisiting a passage, check the author's earlier decisions. Reopen a declined edit when the author asks or supplies evidence that materially changes the issue. When someone else's comment conflicts with the decision, make the conflict a focused question for the author.
 22. In text that an assistant drafts or revises, remove the patterns that read as machine-written. The most common are a contrast with a claim that nobody made, importance claimed in general terms, a sentence that announces that a point matters, a trailing clause that only comments, a set of three by habit, stacked hedges, and a closing sentence that restates its paragraph. Judge them by how often they recur in the draft rather than by one occurrence, and do not reword a sentence the author wrote only to remove one.
 23. Keep most sentences plain and descriptive, and do not use absolute words such as the only, completely, always, or never unless the claim is literally true or the word is part of a technical term. Keep the story of the research, which is the problem, why it matters, the key intuition, and the contributions, to the abstract, the introduction, the conclusion, and the few sentences that state the main point of a method or results section. Use a turn of argument and evaluative wording only there, so that these passages stand out and a reader who reads only them learns the main contributions.
 
@@ -113,7 +114,7 @@ Words that read as AI-drafted academic prose, such as delve, landscape, pivotal,
 
 ### Voice
 
-Keep the directness of the papers and choose one voice for the document. A paper uses we for what the authors did. The author's dissertation uses an impersonal voice, with this dissertation, this chapter, the study, the method, participants, or the results as the subject, and a procedural passive where the procedure deserves emphasis. This is the author's choice and not a field norm, since all seventeen dissertations in [field-conventions.md](field-conventions.md) use we, between 3.0 and 27.0 times per 1,000 words. In another writer's paper or thesis, keep the voice the writer chose. A chapter or paper can propose, examine, or present, but it does not collect data, find results, or improve anything. Give outcome verbs such as improves or enables to the method or the results. Changing the subject must not change the strength of a claim, so found does not become suggested.
+Follow the author's established voice and the genre's expectations. Use I or we for an author's actions where appropriate, and use a procedural passive where the procedure deserves emphasis. Hang chose an impersonal voice for parts of the dissertation. Treat that choice and the transformations below as examples for an impersonal draft. Name the actual actor for collecting data and the relevant result or method for outcomes. Preserve the strength of the claim if you change its subject.
 
 **Forms.** We conducted a study → A study was conducted. Our key insight is that → The key insight is that. [Chapter] collected [data] and found [result] → In [chapter], [data] was collected. The results show that [result].
 
@@ -180,6 +181,10 @@ Qualify a sentence when it misstates what the evidence shows. That covers a null
 
 Keep the treatment or reference condition attached to a benefit, as in [signal] can benefit learning when [condition]. Name the processing method when properly handled would hide the actual operation. Do not delete when or if while tightening a sentence. Would does not become does without evidence.
 
+### Check the evidence before expanding a claim
+
+Keep the sample, comparator, measurement, and scope of a finding attached as the sentence moves or shrinks. Before adding a numerical result, reconcile its underlying source or data version, inclusion rules, denominator, scoring, and calculation as relevant. A reconstructed value with undocumented assumptions stays provisional. When reporting a proposed mechanism or future application, state what was observed, what the author expects, and what would have to be tested. For wording that explains an equation, check the operation under the relevant cases and read its preceding and following sentences to preserve their references.
+
 ### Limitations and future work
 
 A limitation names the design choice or assumption, the claim it limits, and the test that would address it. Announce it in a short sentence and list each limit with its consequence, without apology. Write planned work with Future work could, One planned step is to, and would for what a planned study does. Keep the scope of a plan general, with such as before an example, when exact details may change. Do not replace a scoped contribution with a generic disclaimer. Future work can consider and can be beneficial are the author's forms.
@@ -223,16 +228,15 @@ Open a sentence with its subject, not with a That clause. Follow an abstract cla
 
 ### Writing for a reader outside the subfield
 
-A committee member or reviewer from a neighboring field reads each claim with four questions in mind. What is it, how was it measured, by how much, and what does one case look like. Answer them in the text.
+For readers outside the specialty, ask which part of the sentence they need explained. Retrieve the detail from the manuscript, study materials, or a verified citation.
 
-- Gloss a technical term in one clause the first time it appears in a chapter or paper, such as policy, advantage, oracle, or a coined label like data flywheel.
-- When a sentence counts the members of a set, such as six domains or two behaviors, name the members there or point to where they are named.
-- Introduce a central signal or measure by what it is, who provides it, on what scale or interface, and one example value. Where a later chapter relies on it, remind the reader in one clause.
-- After a claim that something is frequent, varied, noisy, useful, or hard, give one concrete case from the study.
-- Give an evaluative or comparative claim its measure and its size the first time it appears in an abstract, introduction, or summary, as in more accurate (55.83% against 32.59%).
-- Replace a vague noun such as issues, factors, ways, or patterns with the specific thing, or cut it.
+- Gloss a technical term at its first consequential use. For a measure or construct, give the observable quantity, who or what provides it, and its scale or units where relevant. Repeat a brief gloss where a standalone section needs it.
+- Name the members of a small counted set or point readers to the list. Give the denominator and condition where a proportion could otherwise be ambiguous.
+- Answer a request for an example with a concrete case. For a cited example, say what the cited work actually did. Introduce a hypothetical example as an illustration and keep it distinct from the reported evidence.
+- Give a material quantitative comparison its measure, values or effect size, and comparator and setting as needed to interpret it. A theoretical or qualitative claim may need a premise, counterexample, quotation, or case instead of a number.
+- Replace a vague noun with the actual issue it refers to or move the specific sentence next to the claim.
 
-Take these details from the work itself. Where the text does not contain them, mark the gap for the author instead of inventing them. When the author asks for a revision for clarity, these additions count as asked for.
+When the supplied materials leave a fact unresolved, specify what the author would need to confirm. Clarity revision can add verified detail the reader needs.
 
 - “which are?” (a reader, on “six key domains of human characteristics”)
 - “by how much?” (a reader, on “can improve prediction accuracy”)
@@ -291,7 +295,7 @@ Give each sentence one main job, while a related comparison, condition, or expla
 
 ### Few colons and semicolons
 
-Before writing either mark, try to state the relation in words. A which clause can introduce what a colon would, since or because can attach a reason, such as or including can attach examples, and whereas, while, or but can carry a contrast. A second statement can be a new sentence. Keep a colon in four places, which are before a numbered or listed set, after The key intuition is that, after a sentence that names a property and before the clause that spells it out, and before a quotation. Keep semicolons only between the items of a long list whose items contain commas. Replace every em dash with a comma, a which clause, or a new sentence. Do not put a dash or parentheses where the colon was, and do not join two statements with and when the relation is a reason or a contrast. Equations, citations, headings, and quoted text are outside this rule.
+In Hang's writing, try to state the relation in words first. A *which* clause can introduce an explanation, *since* or *because* can attach a reason, *such as* or *including* can introduce an example, and *whereas*, *while*, or *but* can express a contrast. A second statement can be a new sentence. Keep a colon where it clearly introduces a list, quotation, or explicit explanation. Reserve semicolons for lists whose items contain commas. Replace em dashes in prose with a clause or sentence break that makes the relation clear, or use a comma where it reads naturally. Preserve marks in quotations, equations, citations, headings, and identifiers. For another writer's paper, follow the author's choices and the applicable venue style. Propose a punctuation change when it clears up a misreading or serves the requested edit.
 
 - ✗ “a design choice that recurs in the later chapters: comparing a value” → ✓ “a design choice that recurs in the later chapters, which is to compare a value”
 - ✗ “since they may be the most informative: low-quality demonstrations can inform” → ✓ “since low-quality demonstrations can inform”
@@ -388,26 +392,19 @@ Place especially after a general statement to name the case that matters most, o
 
 ## 6. Structure of papers, chapters, and sections
 
-### The thesis in one sentence
+### The central claim
 
-A long work can be reduced to one sentence, and the writer provides it. It names the object, such as a model or a method, and what it makes possible. The author repeats it in the same words in the abstract, the introduction, and the conclusion, which field dissertations seldom do (see [field-conventions.md](field-conventions.md)).
-
-**Forms.** The goal of this work is to [verb] [object] for [purpose].
+State the paper's contribution or governing question in one sentence while planning. Identify what supports it and what limits it. Check that the abstract, introduction, and conclusion are consistent with that claim. Use identical phrasing only when it serves the author's purpose.
 
 ### The introduction
 
-Build the introduction around the practical task and one particular assumption in prior work. Say what that assumption may overlook, why it matters, and the bounded question that follows. Then give the insight, the approach, the study, the main findings, and the contribution. Name the gap precisely, with what prior work covers, what it leaves out, and why. A short concrete scene can show the problem before it is stated in general terms. Reach the statement of what the work does early. These moves are an organizing default, not a fixed paragraph count. Do not dismiss prior work or present a later finding as already established.
+Give readers the question, the relevant context, the contribution, and the reason it matters. Reach the paper's own work early. State what prior literature actually establishes or leaves open. Choose an order that fits the genre. An empirical paper can move from the problem to the approach and evidence, a proof paper from the claim and assumptions to the result, and an interpretive paper from the question and context to its reading of the sources.
 
-**Forms.** Practical stake → prior assumption → overlooked behavior → question → approach → findings → contribution.
-
-Do not open a paper, an abstract, or a section with a stock sentence about the field, such as In recent years, [topic] has attracted increasing attention, With the rapid development of [technology], or Despite recent advances in [field]. Open with the practical task or the specific limitation that the work addresses.
+Open with the specific issue that motivates the work. Use a concrete example where it helps readers understand that issue. Keep claims about prior work and expected outcomes within the evidence available.
 
 ### Openings of a chapter or paper
 
-In a work of several chapters, open each one with a sentence that places it in the larger work, such as This chapter completes the first stage of this dissertation. Then give the chapter's own introduction, which runs from the gap, through the aim or insight and what the chapter proposes, to the study with its participants and task, the main findings, and what they are useful for. Say where the code and data are, and end the opening with the related-work pointer and the original publication. Keep one statement of the aim or contributions near the start, and keep the study summary with its participant counts even if a later section repeats it. Cut a sentence that repeats one a few lines earlier, general background, and a second statement of the findings. The goal is to reduce the feeling of starting a new paper in every chapter. Revise an opening by moving and cutting sentences, not by writing new ones.
-
-- ✓ “It analyzes demonstrations of a long-horizon manipulation task provided by 40 non-experts” became, in the author's own edit, “The main contributions of this chapter are characterizing and categorizing non-optimal behaviors”.
-- ✗ cutting “The validation studies covered a wide range of scenarios and involved 116 participants in total” (declined, the sentence stayed)
+Give each opening the context its readers need. Keep a contribution, definition, study count, or finding where it allows an abstract or section to stand on its own. For nearby repetition, compare what each occurrence does in context, choose the occurrence that serves the reader, and move or merge the author's wording first. Check that the paragraph still introduces every term and referent the next passage uses. Add chapter links, publication history, or code and data pointers when the format or argument calls for them.
 
 ### Connecting the parts of a long work
 
@@ -431,6 +428,10 @@ A results heading states the question answered or the supported finding. A discu
 
 - ✗ “Are the imperfections in non-expert teaching random noise?” → ✓ “The imperfections in non-expert teaching are not random noise.” (after the question was answered)
 - ✗ “PHIRL Learns More Robust Reward Functions” → ✓ “Reward Functions in Two Reward Hacking Scenarios”
+
+### Abstracts and length limits
+
+Verify the current limit and its counting rules for the intended venue, including exceptions for headings, figures, appendices, or references. Establish a baseline count using the source or the rendered format that governs the limit. Protect the question, main contribution, the support for it, and any condition or result a reader needs to interpret the claim. Cut repeated framing and low-value detail first. Show the savings of optional cuts and recount the assembled selection. For page limits, render the revised manuscript and inspect the effect of floats, references, and layout.
 
 ### A results paragraph and a study
 
@@ -496,9 +497,15 @@ When the author's notes are written out as prose, take each sentence from a note
 
 Keep a spelling or grammar fix separate from a rewording, and a rewording separate from a change of claim. When the author fixes one location, align assistant-written text elsewhere that repeats the same problem, but only flag the author's own text elsewhere.
 
+### Proofreading and citation checks
+
+For a mechanical pass, scope the scan to active text and the requested surfaces, such as captions, tables, and cited bibliography entries. Use search as an inventory and inspect each instance in context before proposing a correction. Preserve formatting commands, technical compounds, equation notation, deliberate caption fragments, and quotations where they serve their purpose.
+
+Resolve a citation to the intended work before correcting it. Check metadata against a primary record, such as the publication, publisher record, or repository record for the specific version. Keep metadata corrections separate from judgments about whether a source supports a claim. Distinguish a preprint, a submission, and a published version using documented status. Leave an unidentified citation or competing source match as a question with its location.
+
 ### Check earlier decisions
 
-If a record of the author's earlier decisions exists, read it before proposing changes to the same sentences. A change the author already declined is raised again only as a question in a review note, even when this guide would suggest it. A reader's request that conflicts with an earlier decision goes to the author the same way.
+Check the current passage and its decision history before revisiting an edit. Use the latest explicit decision and the author's saved wording for that passage. Preserve earlier rationale where it explains a choice. When a later comment conflicts with a rejection, show the conflict and ask a focused question. A new proposal is appropriate when the author requests rework or supplies evidence that materially changes the underlying issue. State what changed and preserve the original decision in the record.
 
 ## 8. Talks, slides, and videos
 
